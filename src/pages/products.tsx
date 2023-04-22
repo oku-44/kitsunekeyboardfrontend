@@ -137,7 +137,7 @@ const Products = ({ products }: ProductsProps) => {
 }
 
 export async function getServerSideProps(context: any) {
-	const res = await fetch("http://localhost:1337/api/products?populate=*")
+	const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/products?populate=*`)
 	const products = await res.json()
 	return {
 		props: { products: products },

@@ -162,7 +162,7 @@ const Slug = ({product}: ProductProps) => {
 }
 
 export async function getServerSideProps(context: any) {
-	const res = await fetch("http://localhost:1337/api/products?filters[slug]=" + context.query.slug + "&populate=*")
+	const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/products?filters[slug]=` + context.query.slug + "&populate=*")
 	const product = await res.json()
 	return {
 	  props: { product: product.data[0] },
