@@ -25,7 +25,7 @@ export default function Home() {
             href="#"
             className="mt-8 inline-block rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100"
           >
-            キーボード一覧はこちら
+            キーボード一覧はこちら→
           </a>
         </div>
       </div>
