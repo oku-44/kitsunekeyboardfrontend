@@ -1,6 +1,7 @@
 import React from "react";
 import {
 	PaymentElement,
+	AddressElement,
 	LinkAuthenticationElement,
 	useStripe,
 	useElements
@@ -89,6 +90,20 @@ export default function CheckoutForm() {
 				onChange={(e) => setEmail(e.target.value)}
 			/>
 			<PaymentElement id="payment-element" options={paymentElementOptions} />
+			<h3>Shipping</h3>
+		<AddressElement
+			options={{
+				mode: 'shipping',
+				autocomplete: {
+					mode: "google_maps_api",
+					apiKey: "{YOUR_GOOGLE_MAPS_API_KEY}",
+				  },}}
+			onChange={(event) => {
+			if (event.complete) {
+				// Extract potentially complete address
+				const address = event.value.address;
+			}
+			}} />
 			<button disabled={isLoading || !stripe || !elements} id="submit">
 				<span id="button-text">
 					{isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}

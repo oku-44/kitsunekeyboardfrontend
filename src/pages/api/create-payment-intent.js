@@ -5,7 +5,7 @@ const calculateOrderAmount = async (cartDetails) => {
   let total = 0;
   for (const cart in cartDetails) {
     try {
-      const response = await fetch(`http://localhost:1337/api/products?filters[slug]=${cartDetails[cart].id}&populate=*`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/products?filters[slug]=${cartDetails[cart].id}&populate=*`);
       const res = await response.json()
       total += res.data[0].attributes.price * cartDetails[cart].quantity
     } catch (err) {

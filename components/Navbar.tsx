@@ -50,11 +50,7 @@ export default function NavBar(): JSX.Element {
           </Link>
         ))}
       </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in<span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
+
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50" />
@@ -85,14 +81,6 @@ export default function NavBar(): JSX.Element {
                     {item.name}
                   </Link>
                 ))}
-              </div>
-              <div className="py-6">
-                <Link
-                  href="#"
-                  className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in&rarr;
-                </Link>
               </div>
             </div>
           </div>
