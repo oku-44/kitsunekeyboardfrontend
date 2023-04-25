@@ -42,7 +42,7 @@ export default function Checkout() {
 
             <div className="flow-root">
               <ul role="list" className="-my-6 divide-y divide-gray-200">
-                {Object.values(cartDetails).map((product) => (
+              {Object.values(cartDetails || {}).map((product) => (
                   <li key={product.id} className="flex space-x-6 py-6">
                     <img
                       src={product.image}
