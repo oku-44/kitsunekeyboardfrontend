@@ -18,9 +18,10 @@ const calculateOrderAmount = async (cartDetails) => {
 export default async function handler(req, res) {
   const { cartDetails } = req.body;
   const amount = await calculateOrderAmount(cartDetails); 
+  console.log(amount);
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,
-    currency: "jpy",
+    currency: "JPY",
     automatic_payment_methods: {
       enabled: true,
     },

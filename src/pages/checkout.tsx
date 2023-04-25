@@ -4,10 +4,10 @@ import { useShoppingCart } from "use-shopping-cart"; // use-shopping-cartをimpo
 import CheckoutForm from "../../components/CheckoutForm";
 import { ComponentProps} from "react";
 import getStripe from "@/utils/get-stripe";
-import { CartEntry as ICartEntry } from 'use-shopping-cart/core'
 
 
 type ElementsOptions = ComponentProps<typeof Elements>['options'];
+
 export default function Checkout() {
   const cart = useShoppingCart()
   const { cartDetails, cartCount } = cart
@@ -20,7 +20,7 @@ export default function Checkout() {
       body: JSON.stringify({ cartDetails }), // cartDetailsからitemsを取得する
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => {setClientSecret(data.clientSecret); console.log('checkoutが実行されました')})
   }, [cartCount]); // cartDetailsが変更されたときだけ再度実行されるようにする
 
   const options: ElementsOptions = {
@@ -31,7 +31,6 @@ export default function Checkout() {
 }
 
   return (
-
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-4 sm:px-6 sm:pb-24 sm:pt-8 lg:px-8 xl:px-2 xl:pt-14">
         <h1 className="sr-only">Checkout</h1>

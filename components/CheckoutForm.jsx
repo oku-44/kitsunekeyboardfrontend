@@ -6,10 +6,13 @@ import {
 	useStripe,
 	useElements
 } from "@stripe/react-stripe-js";
+import { useRouter } from "next/router";
+
 
 export default function CheckoutForm() {
 	const stripe = useStripe();
 	const elements = useElements();
+	const router = useRouter();
 
 	const [email, setEmail] = React.useState('');
 	const [message, setMessage] = React.useState(null);
@@ -61,7 +64,7 @@ export default function CheckoutForm() {
 			elements,
 			confirmParams: {
 				// Make sure to change this to your payment completion page
-				return_url: "/products",
+				return_url: `${window.location.origin}/payment_success`,
 			},
 		});
 
