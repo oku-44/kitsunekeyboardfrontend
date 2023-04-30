@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, ShoppingCartIcon, MagnifyingGlassIcon, DocumentTextIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
 type CartItemType = [string, number, number];
@@ -12,21 +12,21 @@ type NavBarProps = {
   cart: CartItemType[];
 };
 const navigation = [
-  { name: 'Products', href: '/products' },
-  { name: 'About', href: '/about' },
-  { name: 'Cart', href: '/cart' },
+  { name: '商品を探す', href: '/products', icon:<MagnifyingGlassIcon className="h-5 w-5"/> },
+  { name: 'トレンド情報', href: '/about', icon:<DocumentTextIcon className="h-5 w-5"/> },
+  { name: 'カート', href: '/cart', icon:<ShoppingCartIcon className="h-5 w-5"/>},
 ]
 
 export default function NavBar(): JSX.Element {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white sticky top-0 z-40 ">
+    <header className="bg-white sticky top-0 z-40 shadow-sm shadow-slate-200">
       <nav className="mx-auto flex max-w-7xl items-center justify-between pt-4 pb-2 px-4 md:px-10" aria-label="Global">
         <div className="flex lg:flex-1">
         <Link href="/"  className="flex items-center -m-1.5 p-1.5">
             <Image src="/kitsune.svg" alt="My Image" width={44} height={44} />
-            <span className='text-lg'>きつねキーボード</span>
+            <span className='text-2xl text-gray-600'>きつねキーボード</span>
         </Link>
         </div>
         <div className="flex lg:hidden">
@@ -39,14 +39,17 @@ export default function NavBar(): JSX.Element {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-6">
         {navigation.map((item) => (
           <Link
             key={item.name}
             href={item.href}
-            className="text-lg font-semibold leading-6 text-gray-900"
+            className="text-sm font-semibold leading-6 text-gray-500 hover:text-indigo-500 hover:decoration-indigo-500"
           >
-            {item.name}
+            <div className='flex flex-col items-center justify-center'>
+              {item.icon}
+              <span className='underline decoration-amber-400 hover:decoration-indigo-500'>{item.name}</span>
+            </div>
           </Link>
         ))}
       </div>
@@ -76,9 +79,13 @@ export default function NavBar(): JSX.Element {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    {item.name}
+                    <div className='flex'>
+                      {item.icon}
+                      <span className='underline decoration-amber-400'>{item.name}</span>
+                    </div>
                   </Link>
                 ))}
               </div>

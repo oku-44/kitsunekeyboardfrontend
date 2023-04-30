@@ -14,16 +14,32 @@ const calculateOrderAmount = async (cartDetails) => {
   }
   return total;
 }
+const createMetadata = (cartDetails) => {
+  const metadata = [];
+
+  for (const cart in cartDetails) {
+
+    metadata.push({
+      id: cartDetails[cart].id,
+      quantity: cartDetails[cart].quantity,
+    });
+  }
+  return JSON.stringify(metadata);
+};
+
 
 export default async function handler(req, res) {
   const { cartDetails } = req.body;
   const amount = await calculateOrderAmount(cartDetails); 
-  console.log(amount);
+  const metadata = createMetadata(cartDetails);
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,
     currency: "JPY",
     automatic_payment_methods: {
       enabled: true,
+    },
+    metadata:{
+      items: metadata,
     },
   });
   res.send({

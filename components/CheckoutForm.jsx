@@ -93,7 +93,6 @@ export default function CheckoutForm() {
 				onChange={(e) => setEmail(e.target.value)}
 			/>
 			<PaymentElement id="payment-element" options={paymentElementOptions} />
-			<h3>Shipping</h3>
 		<AddressElement
 			options={{
 				mode: 'shipping',
@@ -107,9 +106,20 @@ export default function CheckoutForm() {
 				const address = event.value.address;
 			}
 			}} />
-			<button disabled={isLoading || !stripe || !elements} id="submit">
+			<button className="w-full" disabled={isLoading || !stripe || !elements} id="submit">
 				<span id="button-text">
-					{isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+					{isLoading
+					?
+					<div className="spinner" id="spinner"></div>
+					:
+					<div className="mt-6 justrify-self-end">
+						<button
+							type="submit"
+							class="text-sm w-full rounded-md border border-transparent bg-indigo-600 py-3 px-4 font-sans text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+							>
+							注文を確定する
+						</button>
+					</div>}
 				</span>
 			</button>
 			{/* Show any error or success messages */}

@@ -1,7 +1,7 @@
 import React from 'react'
-import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon, TrashIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-
+import CartSummary from '../../components/CartSummary'
 import {
   // Product,
   CartEntry as ICartEntry
@@ -120,91 +120,52 @@ function CartEntry({
             </div>
           </div>
         </div>
-
-        <p className="mt-4 flex space-x-2 text-sm text-gray-700">
+        {/* <p className="mt-4 flex space-x-2 text-sm text-gray-700">
           {entry.availableQty ? (
             <CheckIcon className="h-5 w-5 flex-shrink-0 text-green-500" aria-hidden="true" />
           ) : (
             <ClockIcon className="h-5 w-5 flex-shrink-0 text-gray-300" aria-hidden="true" />
           )}
-          <span>{entry.availableQty ? '在庫あり' : `在庫なし、完成まで1ヶ月程度時間がかかる可能性アリ`}</span>
-        </p>
+          <span>{entry.availableQty ? '在庫あり' : `在庫なし、完成まで1ヶ月程度時間がかかる可能性あり`}</span>
+        </p> */}
       </div>
     </li>
   )
 }
+
+
 const Cart = () => {
   const cart = useShoppingCart()
-  const { removeItem, clearCart, setItemQuantity, cartDetails, cartCount = 0, totalPrice,formattedTotalPrice } = cart
+  const { removeItem, setItemQuantity, cartDetails, cartCount = 0 } = cart
   const cartEntries = Object.values(cartDetails ?? {}).map((entry) => (
     <CartEntry key={entry.id} entry={entry} removeItem={removeItem} setItemQuantity={setItemQuantity} />
-  ))
+    ))
   return (
         <div className="bg-white">
-          {/* <button onClick={() => {console.log(cartDetails)}}>console.log(cartDetails)</button>
-            <DebugCart /> */}
+          {/* <button onClick={() => {console.log(cartDetails)}}>console.log(cartDetails)</button> */}
+            {/* <DebugCart /> */}
         <div className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">ショッピングカート</h1>
+
           <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
             <section aria-labelledby="cart-heading" className="lg:col-span-7">
               <h2 id="cart-heading" className="sr-only">
                 Items in your shopping cart
               </h2>
-              <button onClick={() => clearCart()}>clearCart</button>
-              {cartEntries.length === 0 ? <p>Cart is empty.</p> : null}
-              <ul role="list" className="divide-y divide-gray-200 border-t border-b border-gray-200">
                 {cartEntries.length > 0 ? (
                   <>
+                  <ul role="list" className="divide-y divide-gray-200 border-t border-b border-gray-200">
                     {cartEntries}
+                    </ul>
                   </>
                 ) : null}
-              </ul>
             </section>
-  
             {/* Order summary */}
-            <section
-              aria-labelledby="summary-heading"
-              className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
-            >
-              <h2 id="summary-heading" className="text-lg font-medium text-gray-900">
-                料金
-              </h2>
-  
-              <dl className="mt-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <dt className="text-sm text-gray-600">小計</dt>
-                  <dd className="text-sm font-medium text-gray-900">{formattedTotalPrice}</dd>
-                </div>
-                <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-                  <dt className="flex items-center text-sm text-gray-600">
-                    <span>送料</span>
-                    <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                      <span className="sr-only">Learn more about how shipping is calculated</span>
-                      <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-                    </a>
-                  </dt>
-                  <dd className="text-sm font-medium text-gray-900">{formatCurrencyString({ value: cartCount * 500, currency: 'JPY' })}</dd>
-                </div>
-                <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-                  <dt className="text-base font-medium text-gray-900">合計</dt>
-                  <dd className="text-base font-medium text-gray-900">{formattedTotalPrice}</dd>
-                </div>
-              </dl>
-              <div className="mt-6">
-                <Link
-                href={'checkout'}>
-                  <button
-                    type="submit"
-                    className="w-full rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-                  >
-                    Checkout
-                  </button>
-                </Link>
-              </div>
-            </section>
-
+            {cartEntries.length === 0 ? null : <CartSummary />}
           </form>
+          {cartEntries.length === 0 ? <p className='flex justify-center'>商品はまだ追加されていないようです...</p> : null}
         </div>
+
       </div>
   )
 }

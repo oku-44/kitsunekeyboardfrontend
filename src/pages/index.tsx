@@ -22,7 +22,7 @@ export default function Home() {
           さあ、<span className='bg-indigo-500 font-bold'>最高のパフォーマンス</span>を発揮しましょう。
           </p>
           <a
-            href="#"
+            href="/products"
             className="mt-8 inline-block rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100"
           >
             キーボード一覧はこちら→

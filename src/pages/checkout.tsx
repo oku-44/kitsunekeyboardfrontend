@@ -10,7 +10,7 @@ type ElementsOptions = ComponentProps<typeof Elements>['options'];
 
 export default function Checkout() {
   const cart = useShoppingCart()
-  const { cartDetails, cartCount } = cart
+  const { cartDetails, cartCount, formattedTotalPrice } = cart
   const [clientSecret, setClientSecret] = React.useState("");
 
   React.useEffect(() => {
@@ -56,8 +56,8 @@ export default function Checkout() {
                           </h3>
                         </div>
                         <div className="content-end self-end">
-                          <p className="text-gray-900">{product.price}</p>
-                          <p className="text-gray-900">数量：{product.quantity}</p>
+                          <p className="text-gray-900">価格:¥{product.price}</p>
+                          <p className="text-gray-900">数量:{product.quantity}個</p>
                         </div>
                       </div>
                     </div>
@@ -68,20 +68,16 @@ export default function Checkout() {
 
             <dl className="mt-10 space-y-6 text-sm font-medium text-gray-500">
               <div className="flex justify-between">
-                <dt>Subtotal</dt>
-                <dd className="text-gray-900">$104.00</dd>
+                <dt>小計</dt>
+                <dd className="text-gray-900">{formattedTotalPrice}</dd>
               </div>
               <div className="flex justify-between">
-                <dt>Taxes</dt>
-                <dd className="text-gray-900">$8.32</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt>Shipping</dt>
-                <dd className="text-gray-900">$14.00</dd>
+                <dt>送料</dt>
+                <dd className="text-gray-900">¥0</dd>
               </div>
               <div className="flex justify-between border-t border-gray-200 pt-6 text-gray-900">
-                <dt className="text-base">Total</dt>
-                <dd className="text-base">$126.32</dd>
+                <dt className="text-base">合計</dt>
+                <dd className="text-base">{formattedTotalPrice}</dd>
               </div>
             </dl>
           </div>
@@ -94,7 +90,6 @@ export default function Checkout() {
                 </Elements>
               )}
             </div>
-
           </div>
         </div>
       </div>
