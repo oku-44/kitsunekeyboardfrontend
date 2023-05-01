@@ -5,8 +5,9 @@ const navigation = {
 		{ name: 'Keyswitch', href: '#' },
 		{ name: 'Keycap', href: '#' },
 		{ name: 'Blog', href: '#' },
-		{ name: 'About Us', href: '#' },
-		{ name: 'Contact', href: '#' },
+		{ name: 'About Us', href: '/about' },
+		{ name: '特定商取引法に基づく表記', href: '/Law' },
+
 	],
 	social: [
 	  {
