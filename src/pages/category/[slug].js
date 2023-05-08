@@ -1,5 +1,5 @@
-import Articles from "../../components/articles"
-import { fetchAPI } from "../../lib/api"
+// import Articles from "../../components/articles"
+import { fetchAPI } from "../../../lib/api"
 // import Layout from "../../components/layout"
 import Seo from "../../../components/seo"
 
@@ -15,7 +15,7 @@ const Category = ({ category, categories }) => {
       <Seo seo={seo} />
       <div>
         {/* <h1>{category.attributes.name}</h1> */}
-        <Articles articles={category.attributes.articles.data} />
+        {/* <Articles articles={category.attributes.articles.data} /> */}
       </div>
     {/* </Layout> */}
     
