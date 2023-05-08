@@ -1,7 +1,7 @@
 // import Articles from "../../components/articles"
 import { fetchAPI } from "../../../lib/api"
 // import Layout from "../../components/layout"
-import Seo from  "../../../components/seo"
+import Seo from  "../../../components/Seo"
 
 const Category = ({ category, categories }) => {
   const seo = {
