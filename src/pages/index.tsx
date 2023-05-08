@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import Seo from "../../components/seo";
+import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 import type { AppProps } from 'next/app';
 const Home = ({ homepage }:any) => {
