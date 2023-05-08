@@ -35,7 +35,7 @@ const Article = ({ article, categories }) => {
             </li>
           </ul>
           <div className="py-6 lg:py-8">
-            <NextImage image={article.attributes.image} />
+            {/* <NextImage image={article.attributes.image} /> */}
           </div>
           <div className="">
             <ReactMarkdown
@@ -45,9 +45,9 @@ const Article = ({ article, categories }) => {
             <hr />
             <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
               <div>
-                {article.attributes.author.picture && (
+                {/* {article.attributes.author.picture && (
                   <NextImage image={article.attributes.author.picture} />
-                )}
+                )} */}
               </div>
               <div className="uk-width-expand">
                 <p className="uk-margin-remove-bottom">
