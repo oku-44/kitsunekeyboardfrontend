@@ -40,7 +40,7 @@ export async function getStaticProps({ params }) {
   const matchingCategories = await fetchAPI("/categories", {
     filters: { slug: params.slug },
     populate: {
-      articles: {
+      categories: {
         populate: "*",
       },
     },
