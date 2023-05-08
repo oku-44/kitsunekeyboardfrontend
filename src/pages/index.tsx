@@ -42,12 +42,7 @@ export async function getStaticProps() {
   const [ productRes, homepageRes] = await Promise.all([
     // fetchAPI("/products", { populate: ["image", "category"] }),
     fetchAPI("/products", { populate: "*" }),
-    fetchAPI("/homepage", {
-      populate: {
-        hero: "*",
-        seo: { populate: "*" },
-      },
-    }),
+    fetchAPI("/homepage",  { populate: "*" }),
   ]);
 
   return {
