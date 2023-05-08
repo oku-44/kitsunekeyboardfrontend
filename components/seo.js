@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { useContext } from "react"
-import { GlobalContext } from "../pages/_app"
+import { GlobalContext } from "../src/pages/_app"
 import { getStrapiMedia } from "../lib/media"
 
 const Seo = ({ seo }) => {
@@ -14,9 +14,8 @@ const Seo = ({ seo }) => {
     // Add title suffix
     metaTitle: `${seoWithDefaults.metaTitle} | ${siteName}`,
     // Get full image URL
-    shareImage: getStrapiMedia(seoWithDefaults.shareImage),
+    metaImage: getStrapiMedia(seoWithDefaults.metaImage),
   }
-
   return (
     <Head>
       {fullSeo.metaTitle && (
@@ -33,11 +32,12 @@ const Seo = ({ seo }) => {
           <meta name="twitter:description" content={fullSeo.metaDescription} />
         </>
       )}
-      {fullSeo.shareImage && (
+      {fullSeo.metaImage && (
         <>
-          <meta property="og:image" content={fullSeo.shareImage} />
-          <meta name="twitter:image" content={fullSeo.shareImage} />
-          <meta name="image" content={fullSeo.shareImage} />
+          <meta property="og:image" content={fullSeo.metaImage} />
+          <meta name="twitter:image" content={fullSeo.metaImage} />
+          <meta name="image" content={fullSeo.metaImage} />
+          <link rel="icon" href={fullSeo.metaImage}></link>
         </>
       )}
       {fullSeo.article && <meta property="og:type" content="article" />}

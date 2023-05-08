@@ -3,8 +3,8 @@ const navigation = {
 	main: [
 		{ name: 'Keybord', href: '#' },
 		{ name: 'Keyswitch', href: '#' },
-		{ name: 'Keycap', href: '#' },
-		{ name: 'Blog', href: '#' },
+		{ name: 'Keycap', href: '/products/keycap' },
+		{ name: 'Blog', href: '/article' },
 		{ name: 'About Us', href: '/about' },
 		{ name: '特定商取引法に基づく表記', href: '/Law' },
 
