@@ -39,15 +39,15 @@ const Home = ({ homepage }:any) => {
 }
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [ productRes, homepageRes] = await Promise.all([
+  const [ homepageRes] = await Promise.all([
     // fetchAPI("/products", { populate: ["image", "category"] }),
-    fetchAPI("/products", { populate: "*" }),
+    // fetchAPI("/products", { populate: "*" }),
     fetchAPI("/homepage",  { populate: "*" }),
   ]);
 
   return {
     props: {
-      products: productRes.data,
+      // products: productRes.data,
       homepage: homepageRes.data,
     },
     revalidate: 1,
