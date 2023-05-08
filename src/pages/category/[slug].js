@@ -1,6 +1,6 @@
 import Articles from "../../components/articles"
 import { fetchAPI } from "../../lib/api"
-import Layout from "../../components/layout"
+// import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
 const Category = ({ category, categories }) => {
@@ -10,13 +10,16 @@ const Category = ({ category, categories }) => {
   }
 
   return (
-    <Layout categories={categories.data}>
+    <>
+    {/* <Layout categories={categories.data}> */}
       <Seo seo={seo} />
       <div>
         {/* <h1>{category.attributes.name}</h1> */}
         <Articles articles={category.attributes.articles.data} />
       </div>
-    </Layout>
+    {/* </Layout> */}
+    
+    </>
   )
 }
 
