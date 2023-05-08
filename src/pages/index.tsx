@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 import type { AppProps } from 'next/app';
-const Home = (homepage :any) => {
+const Home = ({ homepage }) => {
   return (
     <>
       <Seo seo={homepage.attributes.seo} />
