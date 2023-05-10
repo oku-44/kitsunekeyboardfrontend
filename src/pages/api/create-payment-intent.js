@@ -1,6 +1,9 @@
 import fetch from "node-fetch";
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+import Stripe from "stripe";
 
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2022-11-15",
+});
 const calculateOrderAmount = async (cartDetails) => {
   let total = 0;
   for (const cart in cartDetails) {
