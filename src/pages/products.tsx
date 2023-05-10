@@ -7,7 +7,7 @@ import {
 	CartActions,
 	CartEntry as ICartEntry
 } from 'use-shopping-cart/core'
-import Seo from "../../components/seo"
+import Seo from "../../components/Seo"
 
 interface Detail {
 	name: string;

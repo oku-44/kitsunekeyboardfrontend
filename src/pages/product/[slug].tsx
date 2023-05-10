@@ -10,7 +10,7 @@ import {
 	DebugCart,
 	formatCurrencyString
   } from 'use-shopping-cart'
-import Seo from '../../../components/seo'
+import Seo from '../../../components/Seo'
 // import { Product } from 'use-shopping-cart/core'
 
 interface Params {
