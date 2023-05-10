@@ -36,8 +36,7 @@ const Seo = ({ seo }) => {
         <>
           <meta property="og:image" content={fullSeo.metaImage} />
           <meta name="twitter:image" content={fullSeo.metaImage} />
-          <meta name="image" content={fullSeo.metaImage} />
-          <link rel="icon" href={fullSeo.metaImage}></link>
+          <link rel="icon" href='/kitsune.svg'></link>
         </>
       )}
       {fullSeo.article && <meta property="og:type" content="article" />}
