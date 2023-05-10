@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+      <link rel="icon" href={'/kitsune.svg'}></link>
       <link
             href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap"
             rel="stylesheet"
