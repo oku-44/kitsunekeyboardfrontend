@@ -7,12 +7,14 @@ import NavBar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { fetchAPI } from '../../lib/api';
 import '../styles/globals.css';
+import { usePageView } from "@/hooks/usePageView";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext<any>({});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { global } = pageProps;
+  usePageView();
 
   return (
     <>

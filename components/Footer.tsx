@@ -6,8 +6,9 @@ const navigation = {
 		{ name: 'Keycap', href: '/products/keycap' },
 		{ name: 'Blog', href: '/article' },
 		{ name: 'About Us', href: '/about' },
+	],
+	sub:[
 		{ name: '特定商取引法に基づく表記', href: '/Law' },
-
 	],
 	social: [
 	  {
@@ -69,7 +70,14 @@ const navigation = {
 			  </a>
 			))}
 		  </div>
-		  <p className="mt-5 text-center text-xs leading-5 text-gray-500">
+		  <div className="mt-5 flex justify-center space-x-10">
+			{navigation.sub.map((item) => (
+				<a href={item.href} className="text-sm leading-6 text-gray-400 hover:text-indigo-500">
+				{item.name}
+			  </a>
+			))}
+		  </div>
+		  <p className="text-center text-xs leading-5 text-gray-500">
 			&copy; 2023 kitsune Keybord, Inc. All rights reserved.
 		  </p>
 		</div>

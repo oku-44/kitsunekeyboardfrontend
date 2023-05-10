@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, MagnifyingGlassIcon, DocumentTextIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -13,16 +13,36 @@ type NavBarProps = {
 };
 const navigation = [
   { name: '商品を探す', href: '/products', icon:<MagnifyingGlassIcon className="h-5 w-5"/> },
-  { name: 'トレンド情報', href: '/about', icon:<DocumentTextIcon className="h-5 w-5"/> },
+  { name: 'トレンド情報', href: '/articles', icon:<DocumentTextIcon className="h-5 w-5"/> },
   { name: 'カート', href: '/cart', icon:<ShoppingCartIcon className="h-5 w-5"/>},
 ]
 
 export default function NavBar(): JSX.Element {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isHeaderShown, setIsHeaderShown] = useState(true)
+  const [lastPosition, setLastPosition] = useState(0)
+  const showHight = 100
+ 
+  const scrollEvent = useCallback(() => {
+    const offset = window.pageYOffset
+    offset > showHight ? setIsHeaderShown(false) : setIsHeaderShown(true)
+    offset < lastPosition ? setIsHeaderShown(true) :''
+     setLastPosition(offset)
+   }, [lastPosition])
+ 
+   useEffect(() => {
+     window.addEventListener('scroll', scrollEvent)
+ 
+     return () => {
+       window.removeEventListener('scroll', scrollEvent)
+     };
+   }, [scrollEvent])
 
   return (
-    <header className="bg-white sticky top-0 z-40 shadow-sm shadow-slate-200">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between pt-4 pb-2 px-4 md:px-10" aria-label="Global">
+    <header className={
+      `${isHeaderShown ? 'translate-y-0' : '-translate-y-40'}
+      bg-white sticky top-0 z-40 shadow-sm shadow-slate-200 transition-all duration-500 ease-in-out`}>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between py-2 px-4 md:px-10" aria-label="Global">
         <div className="flex lg:flex-1">
         <Link href="/"  className="flex items-center -m-1.5 p-1.5">
             <Image src="/kitsune.svg" alt="My Image" width={44} height={44} />

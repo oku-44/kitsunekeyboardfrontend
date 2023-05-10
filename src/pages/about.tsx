@@ -3,9 +3,8 @@ import React from 'react'
 const About = () => {
 	return (
 
-		<div className="bg-gray-800 text-center py-20 pb-30">
+		<div className="bg-gray-800 text-center">
 			<div>
-				<h1 className="text-4xl pb-20 font-bold tracking-tight text-amber-500 lg:text-4xl">About</h1>
 			</div>
 			<div className="relative bg-gray-900">
 				{/* Decorative image and overlay */}
@@ -17,7 +16,8 @@ const About = () => {
 					/>
 				</div>
 				<div aria-hidden="true" className="absolute inset-0 w-full md:w-4/5 h-100 mx-auto bg-gray-900 opacity-70" />
-				<div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 pb-10 mb-40 text-center lg:px-0">
+				<div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-2 pb-10 mb-40 text-center lg:px-0">
+					<h1 className="text-4xl  font-bold tracking-tight text-amber-500 lg:text-4xl">About</h1>
 					<p className="mt-8 text-lg text-white text-left md:w-4/5">
 						ある日のある場所に深い森がありました。<br />
 						偶然にも私は、そこでキツネに出会いました。<br />

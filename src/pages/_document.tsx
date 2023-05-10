@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-
+import { GA_ID } from "@/../lib/gtag";
 export default function Document() {
   return (
     <Html lang="en">
@@ -8,6 +8,23 @@ export default function Document() {
             href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap"
             rel="stylesheet"
           />
+                 {/* Google Analytics */}
+                 {GA_ID && (
+             <>
+               <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+               <script
+                 dangerouslySetInnerHTML={{
+                   __html: `
+                   window.dataLayer = window.dataLayer || [];
+                   function gtag(){dataLayer.push(arguments);}
+                   gtag('js', new Date());
+                   gtag('config', '${GA_ID}', {
+                     page_path: window.location.pathname,
+                   });`,
+                 }}
+               />
+             </>
+           )}
       </Head>
       <body>
         <Main />
