@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI } from "../../../lib/api"
-import Seo from "../../../components/seo"
+import Seo from "../../../components/Seo"
 import { getStrapiMedia } from "../../../lib/media"
 import { CalendarDaysIcon } from "@heroicons/react/24/outline"
 

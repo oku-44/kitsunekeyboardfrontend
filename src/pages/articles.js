@@ -1,7 +1,7 @@
 import React from "react"
 import Card from "../../components/card"
 import { fetchAPI } from "../../lib/api"
-import Seo from "../../components/seo"
+import Seo from "../../components/Seo"
 
 const Articles = ({ articles }) => {
   const seo = {
