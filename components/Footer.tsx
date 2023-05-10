@@ -72,7 +72,7 @@ const navigation = {
 		  </div>
 		  <div className="mt-5 flex justify-center space-x-10">
 			{navigation.sub.map((item) => (
-				<a href={item.href} className="text-sm leading-6 text-gray-400 hover:text-indigo-500">
+				<a key={item.name} href={item.href} className="text-sm leading-6 text-gray-400 hover:text-indigo-500">
 				{item.name}
 			  </a>
 			))}
