@@ -4,14 +4,47 @@ import Seo from '../../components/Seo';
 import { fetchAPI } from "../../lib/api";
 import type { AppProps } from 'next/app';
 import TrendingItems from '../../components/TrendingItems';
+import { StarIcon } from '@heroicons/react/20/solid'
+
+const reviews = [
+  {
+    id: 1,
+    rating: 5,
+    content: `
+    <p>まだレビューがありません...。<br />いつでも素敵なレビューをお待ちしてます。</p>
+    `,
+    date: '2023/05/11',
+    datetime: '2023-05-11',
+    author: 'I AM きつね',
+    avatarSrc:
+      '/kitsune.svg',
+  },
+  {
+    id: 2,
+    rating: 5,
+    content: `
+      <p>まだレビューがありません...。<br />きっとあなたが初レビュワーです。</p>
+    `,
+    date: '2023/05/11',
+    datetime: '2023-05-11',
+    author: 'I AM きつね',
+    avatarSrc:
+      '/kitsune.svg',
+  },
+  // More reviews...
+]
+
+function classNames(...classes: (string | boolean | undefined)[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
 const Home = ({ products, articles, homepage }: any) => {
   const features = [
-    { name: 'Origin', description: 'Designed by Good Goods, Inc.' },
-    { name: 'Material', description: 'Solid walnut base with rare earth magnets and powder coated steel card cover' },
-    { name: 'Dimensions', description: '6.25" x 3.55" x 1.15"' },
-    { name: 'Finish', description: 'Hand sanded and finished with natural oil' },
-    { name: 'Includes', description: 'Wood card tray and 3 refill packs' },
-    { name: 'Considerations', description: 'Made from natural materials. Grain and color vary with each item.' },
+    { name: 'Origin', description: 'きつねキーボードなどの小さなメーカー、cherry、logicoolなどの大手メーカーによるデザイン' },
+    { name: 'Case', description: '仕事からゲームまで、あなたの利用シーンに合った商品' },
+    { name: 'Lineup', description: 'キーボード本体でも、パーツ毎でも、好きなように注文' },
+    { name: 'Pay', description: 'クレジットカード決済・Apple Pay・Google Pay・コンビニ後払い決済サービスが利用可能' },
+    { name: 'Shipping', description: '送料込み、2~3営業日でスピード発送（在庫状況による）' },
   ]
 
   return (
@@ -47,13 +80,14 @@ const Home = ({ products, articles, homepage }: any) => {
       <div className="bg-white">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Technical Specifications</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl">きつねキーボードの特徴</h2>
             <p className="mt-4 text-gray-500">
-              The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. The powder coated
-              steel divider separates active cards from new ones, or can be used to archive important task lists.
+              きつねキーボードは<span className='text-amber-500'>高い品質</span>と<span className='text-amber-500'>豊富なラインナップ</span>で、ゲーマーやエンジニアをはじめとして様々な方にご利用いただいております。
+              オリジナル商品から大手メーカーの商品まで、あなたのニーズに合った商品をお選びいただけます。
+              <span className=' text-amber-500'> Apple Pay</span>や<span className='text-amber-500'>Google Pay</span>が利用でき、面倒な住所やカードの入力も不要。
             </p>
 
-            <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+            <dl className="mt-12 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-y-8 lg:gap-x-8">
               {features.map((feature) => (
                 <div key={feature.name} className="border-t border-gray-200 pt-4">
                   <dt className="font-medium text-gray-900">{feature.name}</dt>
@@ -124,13 +158,48 @@ const Home = ({ products, articles, homepage }: any) => {
           </div>
         </div>
       </>
+
       <TrendingItems products={products} />
-      {/* <div>
-        使い方（サイト・商品）
+
+      <div className="bg-white pt-24">
+        <div className='py-8 lg:mx-auto lg:max-w-7xl px-4 lg:px-8'>
+        <h2 className="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl">ユーザーからのレビュー</h2>
+          <div className="my-0">
+            {reviews.map((review, reviewIdx) => (
+              <div key={review.id} className="flex space-x-4 text-sm text-gray-500">
+                <div className="flex-none py-10">
+                  <img src={review.avatarSrc} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
+                </div>
+                <div className={classNames(reviewIdx === 0 ? '' : 'border-t border-gray-200', 'flex-1 py-10')}>
+                  <h3 className="font-medium text-gray-900">{review.author}</h3>
+                  <p>
+                    <time dateTime={review.datetime}>{review.date}</time>
+                  </p>
+
+                  <div className="mt-4 flex items-center">
+                    {[0, 1, 2, 3, 4].map((rating) => (
+                      <StarIcon
+                        key={rating}
+                        className={classNames(
+                          review.rating > rating ? 'text-yellow-400' : 'text-gray-300',
+                          'h-5 w-5 flex-shrink-0'
+                        )}
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </div>
+                  <p className="sr-only">{review.rating} out of 5 stars</p>
+
+                  <div
+                    className="prose prose-sm mt-4 max-w-none text-gray-500"
+                    dangerouslySetInnerHTML={{ __html: review.content }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <div>
-        お客様の声
-      </div> */}
     </>
   )
 }

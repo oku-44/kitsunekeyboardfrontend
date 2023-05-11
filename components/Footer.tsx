@@ -4,7 +4,7 @@ const navigation = {
 		{ name: 'Keybord', href: '#' },
 		{ name: 'Keyswitch', href: '#' },
 		{ name: 'Keycap', href: '/products/keycap' },
-		{ name: 'Blog', href: '/article' },
+		{ name: 'Article', href: '/articles' },
 		{ name: 'About Us', href: '/about' },
 	],
 	sub:[
@@ -51,7 +51,7 @@ const navigation = {
   
   export default function Footer() {
 	return (
-	  <footer className="bg-white">
+	  <footer className="bg-white pt-24">
 		<div className="mx-auto max-w-7xl overflow-hidden py-10 px-6 sm:py-10 lg:px-8">
 		  <nav className="-mb-6 columns-3 sm:flex justify-center space-x-6" aria-label="Footer">
 			{navigation.main.map((item) => (
