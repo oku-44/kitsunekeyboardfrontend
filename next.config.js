@@ -5,7 +5,7 @@ const nextConfig = {
     loader: "default",
     domains: ["localhost"],
   },
-  head: {
+  headers: {
     link: [
       {
         rel: 'icon',
