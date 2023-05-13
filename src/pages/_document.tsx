@@ -6,6 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
       <link rel="icon" href={'/kitsune.svg'}></link>
+      <link rel="icon" href={'/favicon.ico'}></link>
       <link
             href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap"
             rel="stylesheet"
