@@ -34,6 +34,7 @@ interface Detail {
 		id:number,
 		attributes: {
 		  name: string;
+		  url: string;
 		};
 	  }[];
 	};
@@ -82,7 +83,7 @@ const Slug = ({product}: ProductProps) => {
 								<>
 									<span className="sr-only"> {product.attributes.image.data[0].attributes.name} </span>
 									<span className="absolute inset-0 overflow-hidden rounded-md">
-									<img src={'/' + image.attributes.name} alt="" className="h-full w-full object-cover object-center" />
+									<img src={'/' + image.attributes.url} alt="" className="h-full w-full object-cover object-center" />
 									</span>
 									<span
 									className={classNames(
