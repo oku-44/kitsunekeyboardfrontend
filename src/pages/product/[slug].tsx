@@ -103,7 +103,7 @@ const Slug = ({product}: ProductProps) => {
 						{product.attributes.image.data.map((image) => (
 							<Tab.Panel key={image.id}>
 							<img
-								src={'/' + image.attributes.name}
+								src={'/' + image.attributes.url}
 								alt={image.attributes.name}
 								className="h-full w-full object-cover object-center sm:rounded-lg"
 							/>
