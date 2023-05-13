@@ -21,6 +21,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalContext.Provider value={global.attributes}>
         <Head>
           <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+          <link rel="shortcut icon" href="/images/favicon.ico" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/kitsune.svg" />
         </Head>
         <CartProvider
           mode="payment"

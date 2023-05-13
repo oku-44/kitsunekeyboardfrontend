@@ -10,7 +10,7 @@ const nextConfig = {
       {
         rel: 'icon',
         type: 'image/ico',
-        href: '/kitsune.svg'
+        href: '/favicon.ico'
       }
     ]
   }
