@@ -27,6 +27,7 @@ interface Attribute {
 			id: number,
 			attributes: {
 				name: string;
+				url: string;
 			};
 		}[];
 	};
@@ -75,7 +76,7 @@ const Products = ({ products }: ProductsProps) => {
 											<Link href={`/product/${product.attributes.slug}`}>
 												<div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200">
 													<img
-														src={product.attributes.image.data[0].attributes && product.attributes.image.data[0].attributes.name}
+														src={product.attributes.image.data[0].attributes && product.attributes.image.data[0].attributes.url}
 														alt={product.attributes.name}
 														className="h-full w-full object-cover object-center group-hover:opacity-75"
 													/>
