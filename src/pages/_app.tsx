@@ -1,7 +1,6 @@
 import App from 'next/app';
 import type { AppProps } from 'next/app';
 import { createContext } from 'react';
-import Head from 'next/head';
 import { CartProvider, useShoppingCart } from 'use-shopping-cart';
 import NavBar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -19,9 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalContext.Provider value={global.attributes}>
-        <Head>
-          <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
-        </Head>
         <CartProvider
           mode="payment"
           cartMode="client-only"
