@@ -8,7 +8,8 @@ import {
 	CartEntry as ICartEntry
 } from 'use-shopping-cart/core'
 import Seo from "../../components/Seo"
-
+import { getStrapiMedia } from '../../lib/media'
+import { getStrapiURL } from '../../lib/api'
 interface Detail {
 	name: string;
 	items: string[];
@@ -76,7 +77,7 @@ const Products = ({ products }: ProductsProps) => {
 											<Link href={`/product/${product.attributes.slug}`}>
 												<div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200">
 													<img
-														src={product.attributes.image.data[0].attributes && product.attributes.image.data[0].attributes.url}
+														src={product.attributes.image.data[0].attributes && getStrapiURL(product.attributes.image.data[0].attributes.url)}
 														alt={product.attributes.name}
 														className="h-full w-full object-cover object-center group-hover:opacity-75"
 													/>

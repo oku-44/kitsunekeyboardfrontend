@@ -32,7 +32,6 @@ export default function NavBar(): JSX.Element {
  
    useEffect(() => {
      window.addEventListener('scroll', scrollEvent)
- 
      return () => {
        window.removeEventListener('scroll', scrollEvent)
      };

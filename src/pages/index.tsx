@@ -42,8 +42,9 @@ const Home = ({ products, articles, homepage }: any) => {
   const features = [
     { name: 'Origin', description: 'きつねキーボードなどの小さなメーカー、cherry、logicoolなどの大手メーカーによるデザイン' },
     { name: 'Case', description: '仕事からゲームまで、あなたの利用シーンに合った商品' },
+    { name: 'No Registration', description: '会員登録不要で簡単購入' },
     { name: 'Lineup', description: 'キーボード本体でも、パーツ毎でも、好きなように注文' },
-    { name: 'Pay', description: 'クレジットカード決済・Apple Pay・Google Pay・コンビニ後払い決済サービスが利用可能' },
+    { name: 'Pay', description: '支払いは簡単。クレジットカード決済・Apple Pay・Google Pay・コンビニ後払い決済サービスが利用可能' },
     { name: 'Shipping', description: '送料込み、2~3営業日でスピード発送（在庫状況による）' },
   ]
 

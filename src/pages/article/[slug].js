@@ -13,19 +13,19 @@ const Article = ({ article, categories }) => {
     shareImage: article.attributes.image,
     article: true,
   }
-
+// console.log(article.attributes.content)
   return (
     <>
       <Seo seo={seo} />
-      <div className="bg-gray-50 mx-auto p-6 lg:p-8">
-        <div className="mx-auto max-w-3s sm:w-1/2">
-          <h1 className="text-2xl my-1">{article.attributes.title}</h1>
-          <ul className="flex justify-end">
+      <div className="bg-gray-50 mx-auto p-6 lg:p-8 text-gray-500">
+        <div className="mx-auto max-w-3s sm:w-2/3">
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900">{article.attributes.title}</h1>
+          <ul className="flex items-center justify-end">
             <li>
-              <CalendarDaysIcon className="block h-6 w-6" />
+              <CalendarDaysIcon className="block h-5 w-5" />
             </li>
             <li>
-              <Moment format="YYYY-MM-DD" className="pl-2 text-gray-500">
+              <Moment format="YYYY-MM-DD" className="text-sm pl-1">
                 {article.attributes.published_at}
               </Moment>
             </li>
@@ -33,24 +33,25 @@ const Article = ({ article, categories }) => {
           {/* <div className="py-6 lg:py-8">
             <NextImage image={article.attributes.image} />
           </div> */}
-          <div className="">
+          <div className="markdown">
             <ReactMarkdown
-              source={article.attributes.content}
-              escapeHtml={false}
+              children={article.attributes.content}
+              allowDangerousHtml={true}
+              
             />
             <hr />
             <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-              {/* <div>
+              <div>
                 {article.attributes.author.picture && (
                   <NextImage image={article.attributes.author.picture} />
                 )}
-              </div> */}
-              <div className="uk-width-expand">
-                {/* <p className="uk-margin-remove-bottom">
+              </div>
+              <div className="">
+                <p className="">
                   By {article.attributes.author.data.attributes.name}
-                </p> */}
+                </p>
                 <p className="uk-text-meta uk-margin-remove-top">
-                  <Moment format="MMM Do YYYY">
+                  <Moment format="YYYY-MM-DD">
                     {article.attributes.published_at}
                   </Moment>
                 </p>
