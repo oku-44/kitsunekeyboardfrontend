@@ -1,25 +1,27 @@
-import ReactMarkdown from "react-markdown"
-import Moment from "react-moment"
-import { fetchAPI } from "../../../lib/api"
-import Seo from "../../../components/Seo"
-import { getStrapiMedia } from "../../../lib/media"
-import { CalendarDaysIcon } from "@heroicons/react/24/outline"
+import ReactMarkdown from "react-markdown";
+import Moment from "react-moment";
+import { fetchAPI } from "../../../lib/api";
+import Seo from "../../../components/Seo";
+import { getStrapiMedia } from "../../../lib/media";
+import { CalendarDaysIcon } from "@heroicons/react/24/outline";
 
 const Article = ({ article, categories }) => {
-  const imageUrl = getStrapiMedia(article.attributes.image)
+  const imageUrl = getStrapiMedia(article.attributes.image);
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.description,
     shareImage: article.attributes.image,
     article: true,
-  }
-// console.log(article.attributes.content)
+  };
+  // console.log(article.attributes.content)
   return (
     <>
       <Seo seo={seo} />
       <div className="bg-gray-50 mx-auto p-6 lg:p-8 text-gray-500">
         <div className="mx-auto max-w-3s sm:w-2/3">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900">{article.attributes.title}</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+            {article.attributes.title}
+          </h1>
           <ul className="flex items-center justify-end">
             <li>
               <CalendarDaysIcon className="block h-5 w-5" />
@@ -34,16 +36,21 @@ const Article = ({ article, categories }) => {
             <NextImage image={article.attributes.image} />
           </div> */}
           <div className="markdown">
-            <ReactMarkdown
-              children={article.attributes.content}
-              allowDangerousHtml={true}
-              
-            />
+            <ReactMarkdown allowDangerousHtml={true}>
+              {article.attributes.content}
+            </ReactMarkdown>
             <hr />
             <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
               <div>
                 {article.attributes.author.picture && (
-                  <NextImage image={article.attributes.author.picture} />
+                  <img
+                    src={
+                      article.attributes.author.pictures &&
+                      getStrapiURL(article.attributes.author.picture)
+                    }
+                    alt={article.attributes.name}
+                    className=""
+                  />
                 )}
               </div>
               <div className="">
@@ -61,11 +68,11 @@ const Article = ({ article, categories }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export async function getStaticPaths() {
-  const articlesRes = await fetchAPI("/articles", { fields: ["slug"] })
+  const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
 
   return {
     paths: articlesRes.data.map((article) => ({
@@ -74,7 +81,7 @@ export async function getStaticPaths() {
       },
     })),
     fallback: false,
-  }
+  };
 }
 
 export async function getStaticProps({ params }) {
@@ -83,12 +90,12 @@ export async function getStaticProps({ params }) {
       slug: params.slug,
     },
     populate: "*",
-  })
+  });
 
   return {
     props: { article: articlesRes.data[0] },
     revalidate: 1,
-  }
+  };
 }
 
-export default Article
+export default Article;
