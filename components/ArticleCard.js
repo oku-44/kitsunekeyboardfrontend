@@ -5,7 +5,8 @@ import Image from "next/dist/client/image";
 import { getStrapiURL } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 
-export default function ArticleCard({ article }) {
+function ArticleCard({ article }) {
+  console.log(getStrapiMedia(article.attributes.author.data.attributes.picture))
   return (
     <>
       <Link  href={`/article/${article.attributes.slug}`} passHref>
@@ -15,7 +16,7 @@ export default function ArticleCard({ article }) {
         >
           <div className="relative w-full">
             <img
-              src={getStrapiURL(article.attributes.image.data.attributes.url[0])}
+              src={getStrapiMedia(article.attributes.image)}
               alt=""
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1]"
             />
@@ -39,22 +40,11 @@ export default function ArticleCard({ article }) {
             </div>
             <div className="relative mt-1 w-full flex items-center gap-x-4">
               <img
-                src={
-                  "/kitsune.svg" ||
-                  article.attributes.author.data.attributes.picture
-                }
+                src={getStrapiMedia(article.attributes.author.data.attributes.picture)}
                 alt=""
                 className="h-10 w-10 rounded-full bg-gray-100"
               />
               <div className="text-sm grid w-full leading-6">
-                <p className="font-semibold text-gray-900">
-                  <a
-                    href={getStrapiURL(article.attributes.author.data.attributes.image)}
-                  >
-                    <span className="absolute inset-0" />
-                    {article.attributes.author.data.attributes.name}
-                  </a>
-                </p>
                 <div className="w-ful flex justify-end">
                   <Moment
                   format="YYYY-MM-DD"
@@ -71,3 +61,5 @@ export default function ArticleCard({ article }) {
     </>
   );
 }
+
+export default ArticleCard;

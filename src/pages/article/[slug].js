@@ -5,7 +5,7 @@ import Seo from "../../../components/Seo";
 import { getStrapiMedia } from "../../../lib/media";
 import { CalendarDaysIcon } from "@heroicons/react/24/outline";
 
-const Article = ({ article, categories }) => {
+const Article = ({ article }) => {
   const imageUrl = getStrapiMedia(article.attributes.image);
   const seo = {
     metaTitle: article.attributes.title,
@@ -13,7 +13,7 @@ const Article = ({ article, categories }) => {
     shareImage: article.attributes.image,
     article: true,
   };
-  // console.log(article.attributes.content)
+  console.log(getStrapiMedia(article.attributes.author.data.attributes.picture))
   return (
     <>
       <Seo seo={seo} />
@@ -46,7 +46,7 @@ const Article = ({ article, categories }) => {
                   <img
                     src={
                       article.attributes.author.pictures &&
-                      getStrapiURL(article.attributes.author.picture)
+                      getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)
                     }
                     alt={article.attributes.name}
                     className=""
@@ -89,7 +89,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: "*",
+    populate: ["image",  "author.picture"],
   });
 
   return {
