@@ -114,6 +114,7 @@ const Products = ({ products }: ProductsProps) => {
 														name: product.attributes.name,
 														description: product.attributes.description,
 														image: product.attributes.image.data[0].attributes.name,
+														imageUrl: product.attributes.image.data[0].attributes.url,
 														sku: product.attributes.slug,
 														currency: 'jpy'
 													})}

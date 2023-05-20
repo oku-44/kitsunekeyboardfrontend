@@ -4,6 +4,7 @@ import { useShoppingCart } from "use-shopping-cart"; // use-shopping-cartをimpo
 import CheckoutForm from "../../components/CheckoutForm";
 import { ComponentProps} from "react";
 import getStripe from "@/utils/get-stripe";
+import { getStrapiURL } from "../../lib/api";
 
 
 type ElementsOptions = ComponentProps<typeof Elements>['options'];
@@ -44,7 +45,7 @@ export default function Checkout() {
               {Object.values(cartDetails || {}).map((product) => (
                   <li key={product.id} className="flex space-x-6 py-6">
                     <img
-                      src={product.image}
+                      src={getStrapiURL(product.imageUrl)}
                       alt={product.image}
                       className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
                     />

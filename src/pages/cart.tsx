@@ -12,6 +12,7 @@ import {
   DebugCart,
   formatCurrencyString
 } from 'use-shopping-cart'
+import { getStrapiURL } from '../../lib/api'
 
 
 
@@ -59,7 +60,7 @@ function CartEntry({
     <li key={entry.id} className="flex py-6 sm:py-10">
       <div className="flex-shrink-0">
         <img
-          src={entry.image}
+          src={getStrapiURL(entry.imageUrl)}
           alt={entry.imageAlt}
           className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
         />
