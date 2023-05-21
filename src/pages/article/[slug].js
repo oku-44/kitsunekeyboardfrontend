@@ -6,14 +6,12 @@ import { getStrapiMedia } from "../../../lib/media";
 import { CalendarDaysIcon } from "@heroicons/react/24/outline";
 
 const Article = ({ article }) => {
-  const imageUrl = getStrapiMedia(article.attributes.image);
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.description,
     shareImage: article.attributes.image,
     article: true,
   };
-  console.log(getStrapiMedia(article.attributes.author.data.attributes.picture))
   return (
     <>
       <Seo seo={seo} />

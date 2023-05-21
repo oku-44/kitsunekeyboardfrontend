@@ -17,7 +17,6 @@ const Seo = ({ seo }) => {
     // Get full image URL
     metaImage: getStrapiMedia(seoWithDefaults.metaImage.data.attributes.url),
   }
-  console.log(seoWithDefaults)
   return (
     <Head>
       {fullSeo.metaTitle && (
@@ -34,13 +33,13 @@ const Seo = ({ seo }) => {
           <meta name="twitter:description" content={fullSeo.metaDescription} />
         </>
       )}
-      {/* {fullSeo.metaImage && (
+      {fullSeo.metaImage && (
         <>
           <meta property="og:image" content={fullSeo.metaImage} />
           <meta name="twitter:image" content={fullSeo.metaImage} />
           <link rel="icon" href='/kitsune.svg'></link>
         </>
-      )} */}
+      )}
       {fullSeo.article && <meta property="og:type" content="article" />}
       <meta name="twitter:card" content="summary_large_image" />
     </Head>

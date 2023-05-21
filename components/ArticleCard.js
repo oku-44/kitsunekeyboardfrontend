@@ -6,7 +6,6 @@ import { getStrapiURL } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 
 function ArticleCard({ article }) {
-  console.log(getStrapiMedia(article.attributes.author.data.attributes.picture))
   return (
     <>
       <Link  href={`/article/${article.attributes.slug}`} passHref>
@@ -16,7 +15,7 @@ function ArticleCard({ article }) {
         >
           <div className="relative w-full">
             <img
-              src={getStrapiMedia(article.attributes.image)}
+              src={getStrapiURL(article.attributes.image.data.attributes.url[0])}
               alt=""
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1]"
             />
@@ -40,7 +39,7 @@ function ArticleCard({ article }) {
             </div>
             <div className="relative mt-1 w-full flex items-center gap-x-4">
               <img
-                src={getStrapiMedia(article.attributes.author.data.attributes.picture)}
+                src={getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
                 alt=""
                 className="h-10 w-10 rounded-full bg-gray-100"
               />
