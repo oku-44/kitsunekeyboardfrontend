@@ -30,36 +30,36 @@ const Article = ({ article }) => {
               </Moment>
             </li>
           </ul>
-          {/* <div className="py-6 lg:py-8">
-            <NextImage image={article.attributes.image} />
-          </div> */}
+          <div className="py-6 lg:py-8">
+            <img
+              src={getStrapiMedia(article.attributes.image.data.attributes.url)}
+              className="w-full aspect-4"
+             />
+          </div>
           <div className="markdown">
             <ReactMarkdown allowDangerousHtml={true}>
               {article.attributes.content}
             </ReactMarkdown>
             <hr />
-            <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-              <div>
-                {article.attributes.author.picture && (
+            <div className="relative mt-1 w-full flex items-center justify-end gap-x-4">
+
+              <div className="text-sm grid w-full leading-6">
+                <div className="w-ful flex justify-end my-2">
                   <img
-                    src={
-                      article.attributes.author.pictures &&
-                      getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)
-                    }
-                    alt={article.attributes.name}
-                    className=""
+                    src={getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
+                    alt=""
+                    className="h-10 w-10 items-center rounded-full bg-gray-100 mx-4"
                   />
-                )}
-              </div>
-              <div className="">
-                <p className="">
-                  By {article.attributes.author.data.attributes.name}
-                </p>
-                <p className="uk-text-meta uk-margin-remove-top">
-                  <Moment format="YYYY-MM-DD">
-                    {article.attributes.published_at}
-                  </Moment>
-                </p>
+                  <div>
+                    <p>
+                      この記事を書いた人
+                    </p>
+                    <p>
+                      {article.attributes.author.data.attributes.name}
+                    </p>
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
