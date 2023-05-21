@@ -11,6 +11,7 @@ import {
 	formatCurrencyString
   } from 'use-shopping-cart'
 import Seo from '../../../components/Seo'
+import { getStrapiMedia } from '../../../lib/media'
 // import { Product } from 'use-shopping-cart/core'
 
 interface Params {
@@ -62,7 +63,7 @@ const Slug = ({product}: ProductProps) => {
 		shareImage: product.attributes.image,
 		product: true,
 	  }
-	  
+	// console.log(product.attributes.image.data[0].attributes.url)
 	return (
 		<>
 		<Seo seo={seo} />
@@ -83,7 +84,7 @@ const Slug = ({product}: ProductProps) => {
 								<>
 									<span className="sr-only"> {product.attributes.image.data[0].attributes.name} </span>
 									<span className="absolute inset-0 overflow-hidden rounded-md">
-									<img src={image.attributes.url} alt="" className="h-full w-full object-cover object-center" />
+									<img src={getStrapiMedia(image.attributes.url)} alt="" className="h-full w-full object-cover object-center" />
 									</span>
 									<span
 									className={classNames(
@@ -103,7 +104,7 @@ const Slug = ({product}: ProductProps) => {
 						{product.attributes.image.data.map((image) => (
 							<Tab.Panel key={image.id}>
 							<img
-								src={image.attributes.url}
+								src={getStrapiMedia(image.attributes.url)}
 								alt={image.attributes.name}
 								className="h-full w-full object-cover object-center sm:rounded-lg"
 							/>

@@ -45,7 +45,7 @@ export default function Checkout() {
               {Object.values(cartDetails || {}).map((product) => (
                   <li key={product.id} className="flex space-x-6 py-6">
                     <img
-                      src={getStrapiURL(product.imageUrl)}
+                      src={product.imageUrl}
                       alt={product.image}
                       className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
                     />

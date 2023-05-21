@@ -3,6 +3,7 @@ import React from 'react'
 import {
 	useShoppingCart,
 } from 'use-shopping-cart'
+import { getStrapiMedia } from '../lib/media';
 interface Detail {
 	name: string;
 	items: string[];
@@ -62,7 +63,7 @@ const Products = ({ products }: ProductsProps) => {
 										<Link href={`/product/${product.attributes.slug}`}>
 											<div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200">
 												<img
-													src={product.attributes.image.data[0].attributes && product.attributes.image.data[0].attributes.url}
+													src={product.attributes.image.data[0].attributes && getStrapiMedia(product.attributes.image.data[0].attributes.url)}
 													alt={product.attributes.name}
 													className="h-full w-full object-cover object-center group-hover:opacity-75"
 												/>
