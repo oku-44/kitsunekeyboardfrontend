@@ -2,10 +2,10 @@ import React from "react";
 import Moment from "react-moment";
 import Link from "next/link";
 import Image from "next/dist/client/image";
-import { getStrapiURL } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 
 function ArticleCard({ article }) {
+  console.log(article)
   return (
     <>
       <Link  href={`/article/${article.attributes.slug}`} passHref>
@@ -15,7 +15,7 @@ function ArticleCard({ article }) {
         >
           <div className="relative w-full">
             <img
-              src={getStrapiURL(article.attributes.image.data.attributes.url)}
+              src={getStrapiMedia(article.attributes.image.data.attributes.url)}
               alt=""
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1]"
             />
