@@ -7,6 +7,11 @@ export default function Document() {
       <Head>
       <link rel="shortcut icon" href="/images/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico" />
+      <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7871587350750169"
+      crossOrigin="anonymous">
+     </script>
       <link
             href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap"
             rel="stylesheet"
