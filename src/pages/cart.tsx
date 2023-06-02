@@ -61,7 +61,7 @@ function CartEntry({
     <li key={entry.id} className="flex py-6 sm:py-10">
       <div className="flex-shrink-0">
         <img
-          src={getStrapiMedia(entry.imageUrl)}
+          src={entry.imageUrl &&getStrapiMedia(entry.imageUrl)}
           alt={entry.imageAlt}
           className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
         />
@@ -82,7 +82,7 @@ function CartEntry({
                 <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">{entry.size}</p>
               ) : null}
             </div>
-            <p className="mt-1 text-sm font-medium text-gray-900">{entry.price}</p>
+            <p className="mt-1 text-sm font-medium text-gray-900">1つの価格:¥{entry.price}</p>
           </div>
 
           <div className="mt-4 sm:mt-0 sm:pr-9">

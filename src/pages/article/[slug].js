@@ -46,7 +46,7 @@ const Article = ({ article }) => {
               <div className="text-sm grid w-full leading-6">
                 <div className="w-ful flex justify-end my-2">
                   <img
-                    src={getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
+                    src={article.attributes.author.data.attributes && getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
                     alt=""
                     className="h-10 w-10 items-center rounded-full bg-gray-100 mx-4"
                   />

@@ -27,22 +27,22 @@ function ArticleCard({ article }) {
               <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">
                 {article.attributes.description}
               </p>
-              <div className="mt-2 flex items-center gap-x-4 text-xs">
-
-              {/* <a
-                href={article.attributes.category}
-                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-              >
-                {article.attributes.category}
-              </a> */}
-            </div>
             </div>
             <div className="relative mt-1 w-full flex items-center gap-x-4">
-              <img
-                src={getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
-                alt=""
-                className="h-10 w-10 rounded-full bg-gray-100"
-              />
+            <div className="text-sm grid w-full leading-6">
+              <div className="w-ful flex items-center justify-start my-2">
+                <img
+                  src={getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
+                  alt={article.attributes.author.data.attributes.name}
+                  className="h-10 w-10 rounded-full bg-gray-100"
+                />
+                <div>
+                  <p className="ml-2 text-lg text-gray-600">
+                    {article.attributes.author.data.attributes.name}
+                  </p>
+                </div>
+              </div>
+            </div>
               <div className="text-sm grid w-full leading-6">
                 <div className="w-ful flex justify-end">
                   <Moment
