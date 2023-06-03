@@ -32,7 +32,7 @@ function ArticleCard({ article }) {
             <div className="text-sm grid w-full leading-6">
               <div className="w-ful flex items-center justify-start my-2">
                 <img
-                  src={getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
+                  src={getStrapiMedia(article.attributes.author.data && article.attributes.author.data.attributes.picture.data.attributes.url)}
                   alt={article.attributes.author.data.attributes.name}
                   className="h-10 w-10 rounded-full bg-gray-100"
                 />

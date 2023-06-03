@@ -15,49 +15,54 @@ const Article = ({ article }) => {
   return (
     <>
       <Seo seo={seo} />
-      <div className="bg-gray-50 mx-auto p-6 lg:p-8 text-gray-500">
+      <div className="bg-gray-50 mx-auto py-6 px-2  text-gray-500">
         <div className="mx-auto max-w-3s sm:w-2/3">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-            {article.attributes.title}
-          </h1>
-          <ul className="flex items-center justify-end">
-            <li>
-              <CalendarDaysIcon className="block h-5 w-5" />
-            </li>
-            <li>
-              <Moment format="YYYY-MM-DD" className="text-sm pl-1">
-                {article.attributes.published_at}
-              </Moment>
-            </li>
-          </ul>
-          <div className="py-6 lg:py-8">
-            <img
-              src={getStrapiMedia(article.attributes.image.data.attributes.url)}
-              className="w-full aspect-4"
-             />
-          </div>
           <div className="markdown">
-            <ReactMarkdown allowDangerousHtml={true}>
+            <div className="flex items-center justify-end">
+              <div>
+                <CalendarDaysIcon className="block h-5 w-5" />
+              </div>
+              <div>
+                <Moment format="YYYY-MM-DD" className="text-sm pl-1">
+                  {article.attributes.published_at}
+                </Moment>
+              </div>
+            </div>
+            <h1 className="text-2xl tracking-tight text-gray-600">
+              {article.attributes.title}
+            </h1>
+            <div className="py-2">
+              <img
+                src={getStrapiMedia(
+                  article.attributes.image.data.attributes.url
+                )}
+                className="aspect-[16/9] w-full rounded-md bg-gray-100 object-cover sm:aspect-[2/1]"
+              />
+            </div>
+            <ReactMarkdown
+            allowDangerousHtml={true}
+            className="mb-6"
+            >
               {article.attributes.content}
             </ReactMarkdown>
             <hr />
             <div className="relative mt-1 w-full flex items-center justify-end gap-x-4">
-
               <div className="text-sm grid w-full leading-6">
                 <div className="w-ful flex justify-end my-2">
                   <img
-                    src={article.attributes.author.data.attributes && getStrapiMedia(article.attributes.author.data.attributes.picture.data.attributes.url)}
+                    src={
+                      article.attributes.author.data.attributes &&
+                      getStrapiMedia(
+                        article.attributes.author.data.attributes.picture.data
+                          .attributes.url
+                      )
+                    }
                     alt=""
                     className="h-10 w-10 items-center rounded-full bg-gray-100 mx-4"
                   />
                   <div>
-                    <p>
-                      この記事を書いた人
-                    </p>
-                    <p>
-                      {article.attributes.author.data.attributes.name}
-                    </p>
-
+                    <p>この記事を書いた人</p>
+                    <p>{article.attributes.author.data.attributes.name}</p>
                   </div>
                 </div>
               </div>
@@ -87,7 +92,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["image",  "author.picture"],
+    populate: ["image", "author.picture"],
   });
 
   return {
