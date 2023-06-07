@@ -124,7 +124,7 @@ const Products = ({ products }: ProductsProps) => {
 													カートに追加
 												</button>
 												<Link href='/checkout'>
-												<button
+												{/* <button
 													onClick={() => addItem({
 														id: product.attributes.slug,
 														price: product.attributes.price,
@@ -139,7 +139,7 @@ const Products = ({ products }: ProductsProps) => {
 													className="rounded bg-indigo-600 justify-self-end mt-3 ml-4 py-1 px-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 												>
 													購入する
-												</button>
+												</button> */}
 											</Link>
 											</div>
 										</div>

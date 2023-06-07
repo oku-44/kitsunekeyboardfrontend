@@ -151,7 +151,7 @@ const Slug = ({ product }: ProductProps) => {
 								>
 									カートに追加
 								</button>
-								<button
+								{/* <button
 									onClick={() => {
 										router.push('/checkout');
 										addItem({
@@ -169,7 +169,7 @@ const Slug = ({ product }: ProductProps) => {
 									className="max-w-xs mr-2 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-1/3 min-w-[120px]"
 								>
 									購入
-								</button>
+								</button> */}
 							</div>
 							<section aria-labelledby="details-heading" className="mt-12">
 								<h2 id="details-heading" className="sr-only">
