@@ -125,6 +125,16 @@ const Products = ({ products }: ProductsProps) => {
 												</button>
 												<Link href='/checkout'>
 												<button
+													onClick={() => addItem({
+														id: product.attributes.slug,
+														price: product.attributes.price,
+														name: product.attributes.name,
+														description: product.attributes.description,
+														image: product.attributes.image.data[0].attributes.name,
+														imageUrl: product.attributes.image.data[0].attributes.url,
+														sku: product.attributes.slug,
+														currency: 'jpy'
+													})}
 													type="button"
 													className="rounded bg-indigo-600 justify-self-end mt-3 ml-4 py-1 px-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 												>

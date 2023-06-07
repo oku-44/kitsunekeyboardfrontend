@@ -24,7 +24,7 @@ function ArticleCard({ article }) {
           <div className="max-w-xl w-full">
             <div className="group relative w-max">
               <h3 className="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">{article.attributes.title}</h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">
+              <p className="whitespace-normal mt-2 line-clamp-3 text-sm leading-6 text-gray-600">
                 {article.attributes.description}
               </p>
             </div>
