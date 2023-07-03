@@ -10,6 +10,7 @@ import {
 import Seo from "../../components/Seo"
 import { getStrapiMedia } from '../../lib/media'
 import { getStrapiURL } from '../../lib/api'
+import { NextPage } from 'next'
 interface Detail {
 	name: string;
 	items: string[];
@@ -44,7 +45,7 @@ interface ProductsProps {
 	}
 }
 
-const Products = ({ products }: ProductsProps) => {
+const Products: NextPage<ProductsProps> = ({ products }) => {
 	const cart = useShoppingCart()
 	const { addItem } = cart
 	const seo = {

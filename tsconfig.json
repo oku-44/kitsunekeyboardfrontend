@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/products.tsx", "src/pages/checkout.tsx", "src/pages/api/create-payment-intent.js", "components/CheckoutForm.jsx","components/Seo.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/products.tsx", "src/pages/checkout.tsx", "src/pages/api/create-payment-intent.js", "components/CheckoutForm.jsx","components/Seo.js", "src/pages/article/[slug].js"],
   "exclude": ["node_modules"]
 }

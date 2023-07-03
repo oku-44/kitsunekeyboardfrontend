@@ -1,6 +1,7 @@
+import { NextPage } from 'next'
 import React from 'react'
 
-const About = () => {
+const About: NextPage = () => {
 	return (
 
 		<div className="bg-gray-800 text-center">
