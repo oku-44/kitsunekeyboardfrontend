@@ -12,7 +12,6 @@ import {
 } from 'use-shopping-cart'
 import Seo from '../../../components/Seo'
 import { getStrapiMedia } from '../../../lib/media'
-import { NextPage } from 'next'
 // import { Product } from 'use-shopping-cart/core'
 
 interface Params {
@@ -54,7 +53,7 @@ function classNames(...classes: (string | undefined)[]): string {
 	return classes.filter(Boolean).join(' ');
 }
 
-const Slug: NextPage<ProductProps> = ({ product }) => {
+const Slug = ({ product }: ProductProps) => {
 	const cart = useShoppingCart()
 	const { addItem } = cart
 	const router = useRouter();

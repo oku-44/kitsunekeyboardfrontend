@@ -5,6 +5,7 @@ import Image from "next/dist/client/image";
 import { getStrapiMedia } from "../lib/media";
 
 function ArticleCard({ article }) {
+  console.log(article)
   return (
     <>
       <Link  href={`/article/${article.attributes.slug}`} passHref>

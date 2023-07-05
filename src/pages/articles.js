@@ -2,28 +2,8 @@ import React from "react"
 import ArticleCard from "../../components/ArticleCard"
 import { fetchAPI } from "../../lib/api"
 import Seo from "../../components/Seo"
-import { NextPage } from "next"
-import { type } from "os"
 
-type Article = {
-  attributes: {
-    title: string;
-    description: string;
-    content: string;
-    slug: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-  }
-}
-
-type ArticlesProps = {
-	articles: {
-		data: Article[];
-	}
-}
-
-const Articles: NextPage<ArticlesProps> = ({ articles }) => {
+const Articles = ({ articles }) => {
   const seo = {
     metaTitle: "記事一覧",
     metaDescription: "All articles",
@@ -37,7 +17,7 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
               記事一覧
             </h2>
           <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-4">
-            {articles.data.map((article: Article) => {
+            {articles.map((article) => {
               return <ArticleCard article={article} key={article.attributes.slug} />
             })}
           </div>
@@ -54,7 +34,7 @@ export async function getStaticProps() {
   ]);
   return {
     props: {
-      articles: articlesRes,
+      articles: articlesRes.data,
     },
     revalidate: 1,
   };

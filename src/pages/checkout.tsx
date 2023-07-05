@@ -6,12 +6,11 @@ import { ComponentProps} from "react";
 import getStripe from "@/utils/get-stripe";
 import { getStrapiURL } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
-import { NextPage } from "next";
 
 
 type ElementsOptions = ComponentProps<typeof Elements>['options'];
 
-const Checkout: NextPage = () => {
+export default function Checkout() {
   const cart = useShoppingCart()
   const { cartDetails, cartCount, formattedTotalPrice } = cart
   const [clientSecret, setClientSecret] = React.useState("");
@@ -100,5 +99,3 @@ const Checkout: NextPage = () => {
 
   );
 }
-
-export default Checkout

@@ -2,29 +2,7 @@
 import { fetchAPI } from "../../../lib/api"
 // import Layout from "../../components/layout"
 import Seo from "../../../components/Seo"
-import { GetStaticProps, NextPage } from "next"
-import { Attributes } from "react"
-import { type } from "os"
-
-type Article = {
-  // Articleの型定義
-}
-type Category = {
-    attributes: {
-      name: string;
-      slug: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-    }
-}
-type CategoryProps = {
-  category: Category
-}
-
-
-
-const Category: NextPage<CategoryProps> = ({ category }) => {
+const Category = ({ category, categories }) => {
   const seo = {
     metaTitle: category.attributes.name,
     metaDescription: `All ${category.attributes.name} articles`,
@@ -48,7 +26,7 @@ export async function getStaticPaths() {
   const categoriesRes = await fetchAPI("/categories", { fields: ["slug"] })
 
   return {
-    paths: categoriesRes.data.map((category: Category) => ({
+    paths: categoriesRes.data.map((category) => ({
       params: {
         slug: category.attributes.slug,
       },
@@ -57,18 +35,17 @@ export async function getStaticPaths() {
   }
 }
 
-export const getStaticProps: GetStaticProps<CategoryProps> = async({ params }) => {
-
+export async function getStaticProps({ params }) {
   const matchingCategories = await fetchAPI("/categories", {
-    filters: { slug: params?.slug },
+    filters: { slug: params.slug },
     populate: {
       categories: {
         populate: "*",
       },
     },
   })
-
   const allCategories = await fetchAPI("/categories")
+
   return {
     props: {
       category: matchingCategories.data[0],

@@ -5,7 +5,6 @@ import { fetchAPI } from "../../lib/api";
 import type { AppProps } from 'next/app';
 import TrendingItems from '../../components/TrendingItems';
 import { StarIcon } from '@heroicons/react/20/solid'
-import { NextPage } from 'next';
 
 const reviews = [
   {
@@ -39,7 +38,7 @@ function classNames(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Home: NextPage = ({ products, articles, homepage }: any) => {
+const Home = ({ products, articles, homepage }: any) => {
   const features = [
     { name: 'Origin', description: 'きつねキーボードなどの小さなメーカー、cherry、logicoolなどの大手メーカーによるデザイン' },
     { name: 'Case', description: '仕事からゲームまで、あなたの利用シーンに合った商品' },
