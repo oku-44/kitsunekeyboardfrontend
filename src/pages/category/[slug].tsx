@@ -6,9 +6,9 @@ import { GetStaticProps, NextPage } from "next"
 import { Attributes } from "react"
 import { type } from "os"
 
-type Article = {
-  // Articleの型定義
-}
+// type Article = {
+//   // Articleの型定義
+// }
 type Category = {
     attributes: {
       name: string;
