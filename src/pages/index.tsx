@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Link from 'next/link'
 import Seo from '../../components/Seo';
 import { fetchAPI } from "../../lib/api";
