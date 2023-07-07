@@ -1,16 +1,48 @@
-import React from "react";
+import React, { AriaAttributes } from "react";
 import Moment from "react-moment";
 import Link from "next/link";
 import Image from "next/dist/client/image";
 import { getStrapiMedia } from "../lib/media";
+type Article = {
+  attributes: {
+    title: string;
+    description: string;
+    content: string;
+    slug: string;
+    createdAt: string;
+    updatedAt: string;
+    published_at: string;
+    image: {
+      data: {
+        attributes: {
+          url: string;
+        };
+      };
+    };
+    author: {
+      data: {
+        attributes: {
+          picture: {
+            data: {
+              attributes: {
+                url: string;
+              };
+            };
+          };
+          name: string;
+        };
+      };
+    };
+  };
+};
 
-function ArticleCard({ article }) {
-  console.log(article)
+
+export default function ArticleCard({ article }: {article: Article}): JSX.Element{
   return (
     <>
       <Link  href={`/article/${article.attributes.slug}`} passHref>
         <article
-          key={article.attributes.id}
+          key={article.attributes.slug}
           className="flex flex-col items-start justify-between"
         >
           <div className="relative w-full">
@@ -61,4 +93,3 @@ function ArticleCard({ article }) {
   );
 }
 
-export default ArticleCard;

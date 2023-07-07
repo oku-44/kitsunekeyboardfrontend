@@ -11,7 +11,7 @@ type Article = {
     slug: string;
     createdAt: string;
     updatedAt: string;
-    publishedAt: string;
+    published_at: string;
     image: {
       data: {
         attributes: {
@@ -72,7 +72,7 @@ export async function getStaticProps() {
   ]);
   return {
     props: {
-      articles: articlesRes.data,
+      articles: articlesRes,
     },
     revalidate: 1,
   };
