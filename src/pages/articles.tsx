@@ -2,8 +2,46 @@ import React from "react"
 import ArticleCard from "../../components/ArticleCard"
 import { fetchAPI } from "../../lib/api"
 import Seo from "../../components/Seo"
+import { NextPage } from "next"
+type Article = {
+  attributes: {
+    title: string;
+    description: string;
+    content: string;
+    slug: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    image: {
+      data: {
+        attributes: {
+          url: string;
+        };
+      };
+    };
+    author: {
+      data: {
+        attributes: {
+          picture: {
+            data: {
+              attributes: {
+                url: string;
+              };
+            };
+          };
+          name: string;
+        };
+      };
+    };
+  };
+};
 
-const Articles = ({ articles }) => {
+type ArticlesProps = {
+	articles: {
+		data: Article[];
+	}
+}
+const Articles: NextPage<ArticlesProps>  = ({ articles }) => {
   const seo = {
     metaTitle: "記事一覧",
     metaDescription: "All articles",
@@ -17,7 +55,7 @@ const Articles = ({ articles }) => {
               記事一覧
             </h2>
           <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-4">
-            {articles.map((article) => {
+            {articles.data.map((article) => {
               return <ArticleCard article={article} key={article.attributes.slug} />
             })}
           </div>
