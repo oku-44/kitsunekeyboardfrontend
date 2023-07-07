@@ -6,7 +6,6 @@ import { ComponentProps} from "react";
 import getStripe from "@/utils/get-stripe";
 import { getStrapiURL } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
-import Image from "next/image";
 
 
 type ElementsOptions = ComponentProps<typeof Elements>['options'];

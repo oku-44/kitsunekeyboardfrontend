@@ -47,8 +47,6 @@ interface Detail {
 	attributes: Attribute;
   }
 
-
-
 function CartEntry({
   entry,
   removeItem,
@@ -72,10 +70,10 @@ function CartEntry({
           <div>
             <div className="flex justify-between">
               <h3 className="text-sm">
-                <Link href={entry.href}
+                <a href={entry.href}
                 className="font-medium text-gray-700 hover:text-gray-800">
                   {entry.name}
-                </Link>
+                </a>
               </h3>
             </div>
             <div className="mt-1 flex text-sm">
