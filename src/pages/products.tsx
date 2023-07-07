@@ -3,8 +3,13 @@ import React from 'react'
 import {
 	useShoppingCart,
 } from 'use-shopping-cart'
+import {
+	CartActions,
+	CartEntry as ICartEntry
+} from 'use-shopping-cart/core'
 import Seo from "../../components/Seo"
 import { getStrapiMedia } from '../../lib/media'
+import { getStrapiURL } from '../../lib/api'
 interface Detail {
 	name: string;
 	items: string[];
