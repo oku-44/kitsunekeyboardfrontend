@@ -1,7 +1,6 @@
 import React, { AriaAttributes } from "react";
 import Moment from "react-moment";
 import Link from "next/link";
-import Image from "next/dist/client/image";
 import { getStrapiMedia } from "../lib/media";
 type Article = {
   attributes: {
