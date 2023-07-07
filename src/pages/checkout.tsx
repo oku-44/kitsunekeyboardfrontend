@@ -5,6 +5,7 @@ import CheckoutForm from "../../components/CheckoutForm";
 import { ComponentProps} from "react";
 import getStripe from "@/utils/get-stripe";
 import { getStrapiMedia } from "../../lib/media";
+import Image from "next/image";
 
 
 type ElementsOptions = ComponentProps<typeof Elements>['options'];
@@ -44,9 +45,9 @@ export default function Checkout() {
               <ul role="list" className="-my-6 divide-y divide-gray-200">
               {Object.values(cartDetails || {}).map((product) => (
                   <li key={product.id} className="flex space-x-6 py-6">
-                    <img
+                    <Image
                       src={getStrapiMedia(product.imageUrl)}
-                      alt={product.image}
+                      alt={product.image ? product.image : ''}
                       className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
                     />
                     <div className="flex-auto">

@@ -2,7 +2,7 @@ import App from 'next/app';
 import type { AppProps } from 'next/app';
 import { createContext } from 'react';
 import Head from 'next/head';
-import { CartProvider, useShoppingCart } from 'use-shopping-cart';
+import { CartProvider } from 'use-shopping-cart';
 import NavBar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { fetchAPI } from '../../lib/api';

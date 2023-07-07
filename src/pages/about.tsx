@@ -1,6 +1,8 @@
 import React from 'react'
+import Image from 'next/image'
+import { NextPage } from 'next'
 
-const About = () => {
+const About: NextPage = () => {
 	return (
 
 		<div className="bg-gray-800 text-center">
@@ -9,7 +11,7 @@ const About = () => {
 			<div className="relative bg-gray-900">
 				{/* Decorative image and overlay */}
 				<div aria-hidden="true" className="absolute inset-0">
-					<img
+					<Image
 						src="workshop.jpeg"
 						alt=""
 						className="h-full w-full object-cover"

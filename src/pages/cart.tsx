@@ -1,6 +1,7 @@
 import React from 'react'
-import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon, TrashIcon } from '@heroicons/react/20/solid'
+import { XMarkIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import Image from 'next/image'
 import CartSummary from '../../components/CartSummary'
 import {
   // Product,
@@ -60,7 +61,7 @@ function CartEntry({
   return (
     <li key={entry.id} className="flex py-6 sm:py-10">
       <div className="flex-shrink-0">
-        <img
+        <Image
           src={entry.imageUrl &&getStrapiMedia(entry.imageUrl)}
           alt={entry.imageAlt}
           className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
@@ -71,9 +72,10 @@ function CartEntry({
           <div>
             <div className="flex justify-between">
               <h3 className="text-sm">
-                <a href={entry.href} className="font-medium text-gray-700 hover:text-gray-800">
+                <Link href={entry.href}
+                className="font-medium text-gray-700 hover:text-gray-800">
                   {entry.name}
-                </a>
+                </Link>
               </h3>
             </div>
             <div className="mt-1 flex text-sm">
@@ -138,7 +140,7 @@ function CartEntry({
 
 const Cart = () => {
   const cart = useShoppingCart()
-  const { removeItem, setItemQuantity, cartDetails, cartCount = 0 } = cart
+  const { removeItem, setItemQuantity, cartDetails } = cart
   const cartEntries = Object.values(cartDetails ?? {}).map((entry) => (
     <CartEntry key={entry.id} entry={entry} removeItem={removeItem} setItemQuantity={setItemQuantity} />
     ))

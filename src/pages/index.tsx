@@ -3,6 +3,7 @@ import Seo from '../../components/Seo';
 import { fetchAPI } from "../../lib/api";
 import TrendingItems from '../../components/TrendingItems';
 import { StarIcon } from '@heroicons/react/20/solid'
+import Image from 'next/image';
 
 const reviews = [
   {
@@ -53,7 +54,7 @@ const Home = ({ products, homepage }: any) => {
         <div className="relative bg-gray-900">
           {/* Decorative image and overlay */}
           <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-            <img
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/home-page-01-hero-full-width.jpg"
               alt=""
               className="h-full w-full object-cover object-center"
@@ -96,22 +97,22 @@ const Home = ({ products, homepage }: any) => {
             </dl>
           </div>
           <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-            <img
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
               alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
               className="rounded-lg bg-gray-100"
             />
-            <img
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg"
               alt="Top down view of walnut card tray with embedded magnets and card groove."
               className="rounded-lg bg-gray-100"
             />
-            <img
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg"
               alt="Side of walnut card tray with card groove and recessed card area."
               className="rounded-lg bg-gray-100"
             />
-            <img
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
               className="rounded-lg bg-gray-100"
@@ -122,7 +123,7 @@ const Home = ({ products, homepage }: any) => {
       <>
         <div className="grid min-h-screen grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 bg-gray-50">
           <div className="relative flex">
-            <img
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
               alt=""
               className="absolute inset-0 h-full w-full object-cover object-center"
@@ -139,7 +140,7 @@ const Home = ({ products, homepage }: any) => {
             </div>
           </div>
           <div className="relative flex">
-            <img
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg"
               alt=""
               className="absolute inset-0 h-full w-full object-cover object-center"
@@ -167,7 +168,7 @@ const Home = ({ products, homepage }: any) => {
             {reviews.map((review, reviewIdx) => (
               <div key={review.id} className="flex space-x-4 text-sm text-gray-500">
                 <div className="flex-none py-10">
-                  <img src={review.avatarSrc} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
+                  <Image src={review.avatarSrc} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
                 </div>
                 <div className={classNames(reviewIdx === 0 ? '' : 'border-t border-gray-200', 'flex-1 py-10')}>
                   <h3 className="font-medium text-gray-900">{review.author}</h3>
