@@ -13,7 +13,7 @@ import {
 	formatCurrencyString
 } from 'use-shopping-cart'
 
-export default function NavBar(entry: ICartEntry): JSX.Element {
+export default function NavBar(): JSX.Element {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const [isHeaderShown, setIsHeaderShown] = useState(true)
 	const [lastPosition, setLastPosition] = useState(0)
