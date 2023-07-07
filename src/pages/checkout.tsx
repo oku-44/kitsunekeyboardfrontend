@@ -46,7 +46,7 @@ export default function Checkout() {
               <ul role="list" className="-my-6 divide-y divide-gray-200">
               {Object.values(cartDetails || {}).map((product) => (
                   <li key={product.id} className="flex space-x-6 py-6">
-                    <Image
+                    <img
                       src={getStrapiMedia(product.imageUrl)}
                       alt={product.image ? product.image : ''}
                       className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"

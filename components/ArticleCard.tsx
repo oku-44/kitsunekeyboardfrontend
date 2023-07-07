@@ -46,7 +46,7 @@ export default function ArticleCard({ article }: {article: Article}): JSX.Elemen
           className="flex flex-col items-start justify-between"
         >
           <div className="relative w-full">
-            <Image
+            <img
               src={getStrapiMedia(article.attributes.image.data.attributes.url)}
               alt=""
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1]"
@@ -63,7 +63,7 @@ export default function ArticleCard({ article }: {article: Article}): JSX.Elemen
             <div className="relative mt-1 w-full flex items-center gap-x-4">
             <div className="text-sm grid w-full leading-6">
               <div className="w-ful flex items-center justify-start my-2">
-                <Image
+                <img
                   src={getStrapiMedia(article.attributes.author.data && article.attributes.author.data.attributes.picture.data.attributes.url)}
                   alt={article.attributes.author.data.attributes.name}
                   className="h-10 w-10 rounded-full bg-gray-100"

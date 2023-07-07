@@ -11,7 +11,7 @@ const About: NextPage = () => {
 			<div className="relative bg-gray-900">
 				{/* Decorative image and overlay */}
 				<div aria-hidden="true" className="absolute inset-0">
-					<Image
+					<img
 						src="workshop.jpeg"
 						alt=""
 						className="h-full w-full object-cover"

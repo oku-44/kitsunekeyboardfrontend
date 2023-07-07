@@ -32,7 +32,7 @@ const Article = ({ article }) => {
               {article.attributes.title}
             </h1>
             <div className="py-2">
-              <Image
+              <img
                 src={getStrapiMedia(
                   article.attributes.image.data.attributes.url
                 )}
@@ -49,7 +49,7 @@ const Article = ({ article }) => {
             <div className="relative mt-1 w-full flex items-center justify-end gap-x-4">
               <div className="text-sm grid w-full leading-6">
                 <div className="w-ful flex justify-end my-2">
-                  <Image
+                  <img
                     src={
                       article.attributes.author.data.attributes &&
                       getStrapiMedia(
