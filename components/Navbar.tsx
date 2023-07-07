@@ -26,7 +26,7 @@ export default function NavBar(entry: ICartEntry): JSX.Element {
 		{ name: 'トレンド情報', href: '/articles', icon: <DocumentTextIcon className="h-5 w-5" /> },
 		{ name: 'カート', href: '/cart', icon: <ShoppingCartIcon className="h-5 w-5" /> }
 	]
-	
+
 	const scrollEvent = useCallback(() => {
 		const offset = window.pageYOffset
 		offset > showHight ? setIsHeaderShown(false) : setIsHeaderShown(true)
@@ -110,7 +110,7 @@ export default function NavBar(entry: ICartEntry): JSX.Element {
 						<div className="-my-6 divide-y divide-gray-500/10">
 							<div className="space-y-2 py-6">
 								{navigation.map((item) => (
-									<Link
+									<a
 										key={item.name}
 										href={item.href}
 										className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-50"
@@ -120,7 +120,7 @@ export default function NavBar(entry: ICartEntry): JSX.Element {
 											{item.icon}
 											<span className='underline decoration-amber-400'>{item.name}</span>
 										</div>
-									</Link>
+									</a>
 								))}
 							</div>
 						</div>
