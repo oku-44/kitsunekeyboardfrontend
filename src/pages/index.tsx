@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import Link from 'next/link'
 import Seo from '../../components/Seo';
 import { fetchAPI } from "../../lib/api";
-import type { AppProps } from 'next/app';
 import TrendingItems from '../../components/TrendingItems';
 import { StarIcon } from '@heroicons/react/20/solid'
 
@@ -38,7 +36,7 @@ function classNames(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Home = ({ products, articles, homepage }: any) => {
+const Home = ({ products, homepage }: any) => {
   const features = [
     { name: 'Origin', description: 'きつねキーボードなどの小さなメーカー、cherry、logicoolなどの大手メーカーによるデザイン' },
     { name: 'Case', description: '仕事からゲームまで、あなたの利用シーンに合った商品' },
