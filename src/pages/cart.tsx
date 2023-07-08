@@ -1,6 +1,5 @@
 import React from 'react'
 import { XMarkIcon } from '@heroicons/react/20/solid'
-
 import CartSummary from '../../components/CartSummary'
 import {
 	CartEntry as ICartEntry

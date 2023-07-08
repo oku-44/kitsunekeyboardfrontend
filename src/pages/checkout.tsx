@@ -4,7 +4,6 @@ import { useShoppingCart } from "use-shopping-cart"; // use-shopping-cartをimpo
 import CheckoutForm from "../../components/CheckoutForm";
 import { ComponentProps} from "react";
 import getStripe from "@/utils/get-stripe";
-import { getStrapiURL } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 
 
