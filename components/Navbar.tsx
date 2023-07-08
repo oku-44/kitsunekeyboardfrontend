@@ -1,17 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { useState, useEffect, useCallback } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, MagnifyingGlassIcon, DocumentTextIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { CartEntry as ICartEntry } from 'use-shopping-cart/core'
-import {
-	useShoppingCart,
-	CartActions,
-	DebugCart,
-	formatCurrencyString
-} from 'use-shopping-cart'
+import { useShoppingCart } from 'use-shopping-cart'
 
 export default function NavBar(): JSX.Element {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

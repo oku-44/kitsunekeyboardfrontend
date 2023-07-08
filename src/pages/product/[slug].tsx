@@ -1,18 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
-import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
-import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
+import { Tab } from '@headlessui/react'
 import { useRouter } from 'next/router'
-import { CartActions } from 'use-shopping-cart'
 import { fetchAPI } from '../../../lib/api';
-import {
-	useShoppingCart,
-	DebugCart,
-	formatCurrencyString
-} from 'use-shopping-cart'
+import { useShoppingCart } from 'use-shopping-cart'
 import Seo from '../../../components/Seo'
 import { getStrapiMedia } from '../../../lib/media'
-// import { Product } from 'use-shopping-cart/core'
 
 interface Params {
 	params: { slug: string }

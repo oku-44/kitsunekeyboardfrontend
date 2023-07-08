@@ -8,7 +8,6 @@ interface Detail {
 	name: string;
 	items: string[];
 }
-import Image from 'next/image';
 
 interface Attribute {
 	category: string;

@@ -1,4 +1,3 @@
-import { CheckCircleIcon, InformationCircleIcon } from '@heroicons/react/20/solid'
 import React from 'react'
 const Law = () => {
 	return (
