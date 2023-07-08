@@ -37,7 +37,7 @@ interface ProductsProps {
 	
 }
 
-const Products = ({ products }: ProductsProps) => {
+const TrendingItems = ({ products }: ProductsProps) => {
 	const cart = useShoppingCart()
 	const { addItem } = cart
 	return (
@@ -46,7 +46,7 @@ const Products = ({ products }: ProductsProps) => {
 				<div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
 					<h2 className="text-2xl font-bold tracking-tight text-gray-900">おすすめ商品</h2>
 					<Link href="/products" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
-						See everything
+						全ての商品を見る
 						<span aria-hidden="true"> &rarr;</span>
 					</Link>
 				</div>
@@ -144,7 +144,7 @@ const Products = ({ products }: ProductsProps) => {
 				</div>
 				<div className="mt-12 flex px-4 sm:hidden justify-end">
 					<Link href="/products" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-						See everything
+						全ての商品を見る
 						<span aria-hidden="true"> &rarr;</span>
 					</Link>
 				</div>
@@ -158,4 +158,4 @@ const Products = ({ products }: ProductsProps) => {
 	)
 }
 
-export default Products
+export default TrendingItems

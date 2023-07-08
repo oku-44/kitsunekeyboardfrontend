@@ -53,11 +53,11 @@ const Products = ({ products }: ProductsProps) => {
 			<div className="bg-white">
 				<div className="py-8 lg:mx-auto lg:max-w-7xl lg:px-8">
 					<div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
-						<h2 className="text-2xl font-bold tracking-tight text-gray-900">Trending products</h2>
-						<Link href="#" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
-							See everything
+						<h2 className="text-2xl font-bold tracking-tight text-gray-900">全ての商品</h2>
+						{/* <Link href="#" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
+							全ての商品を見る
 							<span aria-hidden="true"> &rarr;</span>
-						</Link>
+						</Link> */}
 					</div>
 
 					<div className="relative mt-8">
@@ -146,7 +146,7 @@ const Products = ({ products }: ProductsProps) => {
 
 					<div className="mt-12 flex px-4 sm:hidden justify-end">
 						<Link href="/products" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-							See everything
+							全ての商品を見る
 							<span aria-hidden="true"> &rarr;</span>
 						</Link>
 					</div>
